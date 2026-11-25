@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python-labs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.13
+
+      - name: Lint and test all Python experiments
+        run: |
+          set -euo pipefail
+          for manifest in $(find . -maxdepth 3 -name "pyproject.toml" | sort); do
+            dir="$(dirname "$manifest")"
+            echo "=== Running checks in $dir ==="
+            (
+              cd "$dir"
+              uv sync --locked
+              uv run ruff check .
+              uv run pytest -v
+            )
+          done

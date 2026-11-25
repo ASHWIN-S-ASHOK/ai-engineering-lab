@@ -39,7 +39,7 @@
   - Structured JSON outputs (schema enforcement + validation) and Server-Sent Events (SSE) streaming.
 - **Experiments:**
   - `exp-01-async-api-and-structured-data` *(Experiment)*
-  - `exp-01-raw-llm-client-and-prompt-contracts` *(Experiment)*
+  - `exp-01-switchable-llm-client` *(Experiment)*
   - `exp-02-structured-outputs-and-streaming` *(Experiment)*
   - `exp-03-context-window-and-model-comparison` *(Experiment)*
 - **Checkpoint:** Can explain token costs, latency (TTFT vs. total time), schema validation failures, and retry strategies without relying on wrapper frameworks.

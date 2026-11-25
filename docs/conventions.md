@@ -1,6 +1,6 @@
 # Engineering & Project Conventions
 
-This document defines the shared engineering standards used across `ai-engineering-labs`.
+This document defines the shared engineering standards used across `ai-engineering-lab`.
 
 ---
 
