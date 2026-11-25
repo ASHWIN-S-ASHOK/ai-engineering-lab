@@ -1,6 +1,6 @@
 # Ashwin's AI Engineering Labs
 
-> **Repository:** `ai-engineering-labs`  
+> **Repository:** `ai-engineering-lab`  
 > A personal engineering laboratory exploring Python, Large Language Models (LLMs), Generative AI, Retrieval-Augmented Generation (RAG), AI agents, Android on-device AI, and AI system architecture through working experiments, proofs of concept (POCs), and documented architecture studies.
 
 ---
@@ -40,7 +40,7 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 
 | Area | Directory | Focus | Status |
 | --- | --- | --- | --- |
-| Python & AI Fundamentals | `01-python-ai-fundamentals/` | Typed Python, Pydantic, async APIs, data handling, core ML concepts | Planned |
+| Python & AI Fundamentals | [`01-python-ai-fundamentals/`](./01-python-ai-fundamentals/) | Typed Python, Pydantic, async APIs, data handling, core ML concepts | Active |
 | LLM Experiments | `02-llm-experiments/` | Direct LLM APIs, prompt engineering, structured outputs, streaming, context limits | Planned |
 | RAG Systems | `03-rag-systems/` | Ingestion, chunking, embeddings, vector search, grounding, citations, retrieval evals | Planned |
 | AI Agents | `04-ai-agents/` | Tool/function calling, bounded workflows, human-in-the-loop, failure & safety controls | Planned |
@@ -63,9 +63,8 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 
 ## Featured Experiments & Architecture Case Studies
 
-*This section will be populated as experiments and POCs are completed, tested, and reviewed.*
-
-- **Upcoming First Milestone:** Async Python & Typed Data Contracts (`01-python-ai-fundamentals`) followed by Raw LLM API Integration & Prompt Contracts (`02-llm-experiments`). See [ROADMAP.md](./ROADMAP.md) for the full sequence.
+- **Experiment — [Typed Async API Client & Switchable Provider Configuration](./01-python-ai-fundamentals/exp-01-async-api-and-structured-data/README.md):** `pydantic-settings` + `SecretStr` multi-provider config (`gemini`, `openai`, `anthropic`, `ollama`), `Protocol`-based provider registry, and resilient `httpx` client with 18 offline `pytest` cases.
+- **Upcoming Next Milestone:** Switchable Live LLM Client & Prompt Contracts (`02-llm-experiments`) connecting real adapters for Gemini (free tier), OpenAI, Anthropic, and Ollama. See [ROADMAP.md](./ROADMAP.md) for the full sequence.
 
 ---
 
@@ -97,9 +96,9 @@ Full details, deliverables, and checkpoints are tracked in [ROADMAP.md](./ROADMA
 Each experiment manages its own isolated dependencies and `.env.example` so early labs remain lightweight and independent.
 
 ```bash
-# Clone the repository (update URL once remote is created)
-git clone <repository-url>
-cd ai-engineering-labs
+# Clone the repository
+git clone https://github.com/ASHWIN-S-ASHOK/ai-engineering-lab.git
+cd ai-engineering-lab
 
 # Navigate to an experiment directory and sync its isolated environment
 cd <track>/<experiment-dir>
