@@ -65,8 +65,9 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 
 - **Experiment — [Typed Async API Client & Switchable Provider Configuration](./01-python-ai-fundamentals/exp-01-async-api-and-structured-data/README.md):** `pydantic-settings` + `SecretStr` multi-provider config (`gemini`, `openai`, `anthropic`, `ollama`), `Protocol`-based provider registry, and resilient `httpx` client with 18 offline `pytest` cases.
 - **Experiment — [Switchable Multi-Provider LLM Client](./02-llm-experiments/exp-01-switchable-llm-client/README.md):** Thin direct `httpx` REST adapters behind an `LLMProvider` `Protocol` normalizing Gemini, OpenAI Responses, Anthropic Messages, and local Ollama (`16` offline `pytest` cases + optional `--live` mode).
+- **Experiment — [Structured Outputs & Streaming Responses](./02-llm-experiments/exp-02-structured-outputs-and-streaming/README.md):** Strict JSON Schema extraction (`Pydantic` validation + truncation handling) and unified SSE/NDJSON streaming with TTFT metrics (`13` offline `pytest` cases + optional `--live` mode).
 - **Architecture Decision — [ADR-0001: Switchable Multi-Provider LLM Client Abstraction](./06-ai-system-architecture/adr-0001-switchable-llm-provider-abstraction.md):** Evaluates thin direct `httpx` REST adapters vs. four official SDKs vs. wrapper libraries.
-- **Upcoming Next Milestone:** Structured Outputs & Streaming Responses (`02-llm-experiments/exp-02-structured-outputs-and-streaming`). See [ROADMAP.md](./ROADMAP.md) for the full sequence.
+- **Upcoming Next Milestone:** Context Window / Model Comparison (`02-llm-experiments/exp-03-context-window-and-model-comparison`) or Track 03 Embeddings & Similarity from Scratch (`03-rag-systems`). See [ROADMAP.md](./ROADMAP.md) for the full sequence.
 
 ---
 
