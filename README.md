@@ -45,7 +45,7 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 | RAG Systems | `03-rag-systems/` | Ingestion, chunking, embeddings, vector search, grounding, citations, retrieval evals | Planned |
 | AI Agents | `04-ai-agents/` | Tool/function calling, bounded workflows, human-in-the-loop, failure & safety controls | Planned |
 | Android On-Device AI | `05-android-on-device-ai/` | Gemini Nano / AICore, ML Kit GenAI, on-device vs. cloud routing, offline & privacy | Planned |
-| AI System Architecture | `06-ai-system-architecture/` | Reference architectures, ADRs, OWASP LLM security, cost/latency/reliability analysis | Planned |
+| AI System Architecture | [`06-ai-system-architecture/`](./06-ai-system-architecture/) | Reference architectures, ADRs, OWASP LLM security, cost/latency/reliability analysis | Active |
 | System Diagrams | `architecture/` | Cross-project system, data-flow, and deployment diagrams (Mermaid) | Planned |
 | Notes & Templates | `docs/` | Learning notes, technical investigations, and standard templates | Active |
 | Visual Assets | `assets/` | Architecture exports and demo captures (added only when valuable) | Planned |
@@ -64,7 +64,8 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 ## Featured Experiments & Architecture Case Studies
 
 - **Experiment — [Typed Async API Client & Switchable Provider Configuration](./01-python-ai-fundamentals/exp-01-async-api-and-structured-data/README.md):** `pydantic-settings` + `SecretStr` multi-provider config (`gemini`, `openai`, `anthropic`, `ollama`), `Protocol`-based provider registry, and resilient `httpx` client with 18 offline `pytest` cases.
-- **Upcoming Next Milestone:** Switchable Live LLM Client & Prompt Contracts (`02-llm-experiments`) connecting real adapters for Gemini (free tier), OpenAI, Anthropic, and Ollama. See [ROADMAP.md](./ROADMAP.md) for the full sequence.
+- **Architecture Decision — [ADR-0001: Switchable Multi-Provider LLM Client Abstraction](./06-ai-system-architecture/adr-0001-switchable-llm-provider-abstraction.md):** Evaluates thin direct `httpx` REST adapters vs. four official SDKs vs. wrapper libraries.
+- **Upcoming Next Milestone:** Switchable Live LLM Client & Prompt Contracts (`02-llm-experiments`) implementing ADR-0001 across Gemini (free tier), OpenAI, Anthropic, and Ollama. See [ROADMAP.md](./ROADMAP.md) for the full sequence.
 
 ---
 
