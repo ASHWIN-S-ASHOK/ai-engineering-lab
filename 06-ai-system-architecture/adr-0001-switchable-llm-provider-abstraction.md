@@ -1,6 +1,6 @@
 # ADR-0001: Switchable Multi-Provider LLM Client Abstraction
 
-**Status:** `Proposed`  
+**Status:** `Accepted`  
 **Date:** `2026-11-25`  
 **Scope:** `02-llm-experiments/exp-01-switchable-llm-client` (and early Track 02–03 experiments)  
 **Related ADRs:** None (foundational LLM transport decision)
