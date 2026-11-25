@@ -42,7 +42,7 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 | --- | --- | --- | --- |
 | Python & AI Fundamentals | [`01-python-ai-fundamentals/`](./01-python-ai-fundamentals/) | Typed Python, Pydantic, async APIs, data handling, core ML concepts | Active |
 | LLM Experiments | [`02-llm-experiments/`](./02-llm-experiments/) | Direct LLM APIs, prompt engineering, structured outputs, streaming, context limits | Active |
-| RAG Systems | `03-rag-systems/` | Ingestion, chunking, embeddings, vector search, grounding, citations, retrieval evals | Planned |
+| RAG Systems | [`03-rag-systems/`](./03-rag-systems/) | Ingestion, chunking, embeddings, vector search, grounding, citations, retrieval evals | Active |
 | AI Agents | `04-ai-agents/` | Tool/function calling, bounded workflows, human-in-the-loop, failure & safety controls | Planned |
 | Android On-Device AI | `05-android-on-device-ai/` | Gemini Nano / AICore, ML Kit GenAI, on-device vs. cloud routing, offline & privacy | Planned |
 | AI System Architecture | [`06-ai-system-architecture/`](./06-ai-system-architecture/) | Reference architectures, ADRs, OWASP LLM security, cost/latency/reliability analysis | Active |
@@ -67,8 +67,9 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 - **Experiment — [Switchable Multi-Provider LLM Client](./02-llm-experiments/exp-01-switchable-llm-client/README.md):** Thin direct `httpx` REST adapters behind an `LLMProvider` `Protocol` normalizing Gemini, OpenAI Responses, Anthropic Messages, and local Ollama (`16` offline `pytest` cases + optional `--live` mode).
 - **Experiment — [Structured Outputs & Streaming Responses](./02-llm-experiments/exp-02-structured-outputs-and-streaming/README.md):** Strict JSON Schema extraction (`Pydantic` validation + truncation handling) and unified SSE/NDJSON streaming with TTFT metrics (`13` offline `pytest` cases + optional `--live` mode).
 - **Experiment — [Context Window Budgeting & Model Comparison](./02-llm-experiments/exp-03-context-window-and-model-comparison/README.md):** Context overflow policies (`fail_fast`, `drop_oldest`, `drop_middle`), preflight token counting (`:countTokens`, `/messages/count_tokens`), Ollama `num_ctx`, and needle-in-a-haystack comparison (`10` offline `pytest` cases + optional `--live` mode).
+- **Experiment — [Embeddings & Cosine Similarity from Scratch](./03-rag-systems/exp-01-embeddings-and-similarity-from-scratch/README.md):** Overlapping & paragraph chunkers, switchable Gemini/OpenAI/Ollama embedders, pure NumPy L2-norm + cosine search, and `recall@k` / `MRR` diagnostics (`12` offline `pytest` cases + optional `--live` mode).
 - **Architecture Decision — [ADR-0001: Switchable Multi-Provider LLM Client Abstraction](./06-ai-system-architecture/adr-0001-switchable-llm-provider-abstraction.md):** Evaluates thin direct `httpx` REST adapters vs. four official SDKs vs. wrapper libraries.
-- **Upcoming Next Milestone:** Track 03 — Embeddings & Cosine Similarity from Scratch (`03-rag-systems/exp-01-embeddings-and-similarity-from-scratch`). See [ROADMAP.md](./ROADMAP.md) for the full sequence.
+- **Upcoming Next Milestone:** Grounded RAG Proof of Concept with Citations, Abstention & Evals (`03-rag-systems/exp-02-grounded-rag-with-citations-and-evals`). See [ROADMAP.md](./ROADMAP.md) for the full sequence.
 
 ---
 
