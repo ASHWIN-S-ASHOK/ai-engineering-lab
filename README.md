@@ -44,7 +44,7 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 | LLM Experiments | [`02-llm-experiments/`](./02-llm-experiments/) | Direct LLM APIs, prompt engineering, structured outputs, streaming, context limits | Active |
 | RAG Systems | [`03-rag-systems/`](./03-rag-systems/) | Ingestion, chunking, embeddings, vector search, grounding, citations, retrieval evals | Active |
 | AI Agents | [`04-ai-agents/`](./04-ai-agents/) | Tool/function calling, bounded workflows, human-in-the-loop, failure & safety controls | Active |
-| Android On-Device AI | `05-android-on-device-ai/` | Gemini Nano / AICore, ML Kit GenAI, on-device vs. cloud routing, offline & privacy | Planned |
+| Android On-Device AI | [`05-android-on-device-ai/`](./05-android-on-device-ai/) | Gemini Nano / AICore, ML Kit GenAI, on-device vs. cloud routing, offline & privacy | Active |
 | AI System Architecture | [`06-ai-system-architecture/`](./06-ai-system-architecture/) | Reference architectures, ADRs, OWASP LLM security, cost/latency/reliability analysis | Active |
 | System Diagrams | `architecture/` | Cross-project system, data-flow, and deployment diagrams (Mermaid) | Planned |
 | Notes & Templates | `docs/` | Learning notes, technical investigations, and standard templates | Active |
@@ -71,10 +71,12 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 - **Proof of Concept — [Grounded RAG with Hybrid Retrieval, Citations & Evals](./03-rag-systems/exp-02-grounded-rag-with-citations-and-evals/README.md):** SQLite `FTS5` BM25 + NumPy cosine via RRF, programmatic citation verification, abstention on missing evidence, and dense-vs-hybrid evals (`9` offline `pytest` cases + optional `--live` mode).
 - **Experiment — [Bounded Multi-Provider Tool-Calling Router](./04-ai-agents/exp-01-tool-calling-router/README.md):** Allow-listed `ToolRegistry` with Pydantic validation, multi-turn Gemini/OpenAI/Anthropic/Ollama tool adapters, `max_steps` cap, and audit traces (`11` offline `pytest` cases + optional `--live` mode).
 - **Proof of Concept — [Bounded Agent with Human-in-the-Loop Approval Gate](./04-ai-agents/exp-02-bounded-agent-with-human-approval/README.md):** Risk-tiered tools, serializable pause/resume state machine, `MAX_REFUND_USD` policy checks, and prompt-injection defense (`8` offline `pytest` cases + interactive `--live` mode).
+- **Experiment — [Android On-Device GenAI Summarizer (Kotlin / Compose)](./05-android-on-device-ai/exp-01-android-on-device-summarizer/README.md):** Clean Architecture + MVVM integration of `com.google.mlkit:genai-prompt` with `FeatureStatus` checks, `Flow` download progress, privacy-gated cloud fallback, and offline fallback (`6` JVM unit tests via `./gradlew testDebugUnitTest`).
 - **Architecture Decision — [ADR-0001: Switchable Multi-Provider LLM Client Abstraction](./06-ai-system-architecture/adr-0001-switchable-llm-provider-abstraction.md):** Evaluates thin direct `httpx` REST adapters vs. four official SDKs vs. wrapper libraries.
 - **Architecture Decision — [ADR-0002: Hybrid Retrieval & Local Vector Store](./06-ai-system-architecture/adr-0002-hybrid-retrieval-and-local-vector-store.md):** Evaluates SQLite `FTS5` + NumPy + RRF vs. embedded vector DBs vs. managed cloud vector stores for the Grounded RAG POC.
 - **Architecture Decision — [ADR-0003: Pause-and-Resume HITL Approval State Machine](./06-ai-system-architecture/adr-0003-hitl-approval-state-machine.md):** Evaluates serializable `AgentRunState` pause/resume transitions vs. blocking callbacks vs. post-hoc undo.
-- **Upcoming Next Milestone:** Month 4 — Track `05-android-on-device-ai`: Android On-Device GenAI (Gemini Nano / ML Kit GenAI) & Hybrid Edge–Cloud Architecture. See [ROADMAP.md](./ROADMAP.md) for the full sequence.
+- **Architecture Decision — [ADR-0004: Hybrid Edge–Cloud AI Routing for Android](./06-ai-system-architecture/adr-0004-android-hybrid-edge-cloud-routing.md):** Evaluates cloud-only vs. on-device-only vs. Clean Architecture hybrid routing for enterprise Android fleets.
+- **Upcoming Next Milestone:** Month 5 — Track `06-ai-system-architecture`: Mobile-to-AI Gateway Reference Architecture, OWASP LLM Threat Model & Cost/Latency Analysis. See [ROADMAP.md](./ROADMAP.md) for the full sequence.
 
 ---
 
