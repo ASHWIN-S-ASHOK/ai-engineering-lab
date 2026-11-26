@@ -46,8 +46,8 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 | AI Agents | [`04-ai-agents/`](./04-ai-agents/) | Tool/function calling, bounded workflows, human-in-the-loop, failure & safety controls | Active |
 | Android On-Device AI | [`05-android-on-device-ai/`](./05-android-on-device-ai/) | Gemini Nano / AICore, ML Kit GenAI, on-device vs. cloud routing, offline & privacy | Active |
 | AI System Architecture | [`06-ai-system-architecture/`](./06-ai-system-architecture/) | Reference architectures, ADRs, OWASP LLM security, cost/latency/reliability analysis | Active |
-| System Diagrams | `architecture/` | Cross-project system, data-flow, and deployment diagrams (Mermaid) | Planned |
-| Notes & Templates | `docs/` | Learning notes, technical investigations, and standard templates | Active |
+| System Diagrams | [`architecture/`](./architecture/) | Cross-project system, data-flow, and deployment diagrams (Mermaid) | Active |
+| Notes & Templates | [`docs/`](./docs/) | Learning notes, technical investigations, and standard templates | Active |
 | Visual Assets | `assets/` | Architecture exports and demo captures (added only when valuable) | Planned |
 
 ---
@@ -72,11 +72,14 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 - **Experiment — [Bounded Multi-Provider Tool-Calling Router](./04-ai-agents/exp-01-tool-calling-router/README.md):** Allow-listed `ToolRegistry` with Pydantic validation, multi-turn Gemini/OpenAI/Anthropic/Ollama tool adapters, `max_steps` cap, and audit traces (`11` offline `pytest` cases + optional `--live` mode).
 - **Proof of Concept — [Bounded Agent with Human-in-the-Loop Approval Gate](./04-ai-agents/exp-02-bounded-agent-with-human-approval/README.md):** Risk-tiered tools, serializable pause/resume state machine, `MAX_REFUND_USD` policy checks, and prompt-injection defense (`8` offline `pytest` cases + interactive `--live` mode).
 - **Experiment — [Android On-Device GenAI Summarizer (Kotlin / Compose)](./05-android-on-device-ai/exp-01-android-on-device-summarizer/README.md):** Clean Architecture + MVVM integration of `com.google.mlkit:genai-prompt` with `FeatureStatus` checks, `Flow` download progress, privacy-gated cloud fallback, and offline fallback (`6` JVM unit tests via `./gradlew testDebugUnitTest`).
+- **Architecture Study — [Mobile-to-AI Gateway (BFF) Reference Architecture](./06-ai-system-architecture/ref-01-mobile-ai-gateway-architecture.md):** End-to-end design unifying Android edge inference, hybrid RAG, HITL workflows, and switchable providers, backed by [System](./architecture/system-mobile-ai-gateway.md), [Data-Flow](./architecture/dataflow-rag-and-hitl-approval.md), and [Deployment](./architecture/deployment-edge-cloud-topology.md) Mermaid diagrams.
+- **Architecture Study — [Security & Privacy Threat Model (OWASP LLM Top 10 — 2026)](./06-ai-system-architecture/study-01-owasp-llm-threat-model.md):** Maps `LLM01:2026`–`LLM10:2026` across mobile edge, BFF, RAG store, and model providers.
+- **Architecture Study — [Cost, Latency & Observability Engineering](./06-ai-system-architecture/study-02-cost-latency-and-observability.md):** Edge-vs-cloud latency breakdown, FinOps levers, correlation tracing, and CI evaluation gates.
 - **Architecture Decision — [ADR-0001: Switchable Multi-Provider LLM Client Abstraction](./06-ai-system-architecture/adr-0001-switchable-llm-provider-abstraction.md):** Evaluates thin direct `httpx` REST adapters vs. four official SDKs vs. wrapper libraries.
 - **Architecture Decision — [ADR-0002: Hybrid Retrieval & Local Vector Store](./06-ai-system-architecture/adr-0002-hybrid-retrieval-and-local-vector-store.md):** Evaluates SQLite `FTS5` + NumPy + RRF vs. embedded vector DBs vs. managed cloud vector stores for the Grounded RAG POC.
 - **Architecture Decision — [ADR-0003: Pause-and-Resume HITL Approval State Machine](./06-ai-system-architecture/adr-0003-hitl-approval-state-machine.md):** Evaluates serializable `AgentRunState` pause/resume transitions vs. blocking callbacks vs. post-hoc undo.
 - **Architecture Decision — [ADR-0004: Hybrid Edge–Cloud AI Routing for Android](./06-ai-system-architecture/adr-0004-android-hybrid-edge-cloud-routing.md):** Evaluates cloud-only vs. on-device-only vs. Clean Architecture hybrid routing for enterprise Android fleets.
-- **Upcoming Next Milestone:** Month 5 — Track `06-ai-system-architecture`: Mobile-to-AI Gateway Reference Architecture, OWASP LLM Threat Model & Cost/Latency Analysis. See [ROADMAP.md](./ROADMAP.md) for the full sequence.
+- **Upcoming Next Milestone:** Month 6 — Capstone Proof of Concept (FastAPI AI BFF + Grounded RAG + HITL Approvals + Android Client Contract) & Full Portfolio Review. See [ROADMAP.md](./ROADMAP.md) for the full sequence.
 
 ---
 
