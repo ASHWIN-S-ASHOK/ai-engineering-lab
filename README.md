@@ -43,7 +43,7 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 | Python & AI Fundamentals | [`01-python-ai-fundamentals/`](./01-python-ai-fundamentals/) | Typed Python, Pydantic, async APIs, data handling, core ML concepts | Active |
 | LLM Experiments | [`02-llm-experiments/`](./02-llm-experiments/) | Direct LLM APIs, prompt engineering, structured outputs, streaming, context limits | Active |
 | RAG Systems | [`03-rag-systems/`](./03-rag-systems/) | Ingestion, chunking, embeddings, vector search, grounding, citations, retrieval evals | Active |
-| AI Agents | `04-ai-agents/` | Tool/function calling, bounded workflows, human-in-the-loop, failure & safety controls | Planned |
+| AI Agents | [`04-ai-agents/`](./04-ai-agents/) | Tool/function calling, bounded workflows, human-in-the-loop, failure & safety controls | Active |
 | Android On-Device AI | `05-android-on-device-ai/` | Gemini Nano / AICore, ML Kit GenAI, on-device vs. cloud routing, offline & privacy | Planned |
 | AI System Architecture | [`06-ai-system-architecture/`](./06-ai-system-architecture/) | Reference architectures, ADRs, OWASP LLM security, cost/latency/reliability analysis | Active |
 | System Diagrams | `architecture/` | Cross-project system, data-flow, and deployment diagrams (Mermaid) | Planned |
@@ -69,9 +69,10 @@ Folders are created progressively as experiments begin (no empty placeholder dir
 - **Experiment — [Context Window Budgeting & Model Comparison](./02-llm-experiments/exp-03-context-window-and-model-comparison/README.md):** Context overflow policies (`fail_fast`, `drop_oldest`, `drop_middle`), preflight token counting (`:countTokens`, `/messages/count_tokens`), Ollama `num_ctx`, and needle-in-a-haystack comparison (`10` offline `pytest` cases + optional `--live` mode).
 - **Experiment — [Embeddings & Cosine Similarity from Scratch](./03-rag-systems/exp-01-embeddings-and-similarity-from-scratch/README.md):** Overlapping & paragraph chunkers, switchable Gemini/OpenAI/Ollama embedders, pure NumPy L2-norm + cosine search, and `recall@k` / `MRR` diagnostics (`12` offline `pytest` cases + optional `--live` mode).
 - **Proof of Concept — [Grounded RAG with Hybrid Retrieval, Citations & Evals](./03-rag-systems/exp-02-grounded-rag-with-citations-and-evals/README.md):** SQLite `FTS5` BM25 + NumPy cosine via RRF, programmatic citation verification, abstention on missing evidence, and dense-vs-hybrid evals (`9` offline `pytest` cases + optional `--live` mode).
+- **Experiment — [Bounded Multi-Provider Tool-Calling Router](./04-ai-agents/exp-01-tool-calling-router/README.md):** Allow-listed `ToolRegistry` with Pydantic validation, multi-turn Gemini/OpenAI/Anthropic/Ollama tool adapters, `max_steps` cap, and audit traces (`11` offline `pytest` cases + optional `--live` mode).
 - **Architecture Decision — [ADR-0001: Switchable Multi-Provider LLM Client Abstraction](./06-ai-system-architecture/adr-0001-switchable-llm-provider-abstraction.md):** Evaluates thin direct `httpx` REST adapters vs. four official SDKs vs. wrapper libraries.
 - **Architecture Decision — [ADR-0002: Hybrid Retrieval & Local Vector Store](./06-ai-system-architecture/adr-0002-hybrid-retrieval-and-local-vector-store.md):** Evaluates SQLite `FTS5` + NumPy + RRF vs. embedded vector DBs vs. managed cloud vector stores for the Grounded RAG POC.
-- **Upcoming Next Milestone:** Month 3 — Track `04-ai-agents`: Tool calling, bounded agent state machines, and human-in-the-loop safety gates. See [ROADMAP.md](./ROADMAP.md) for the full sequence.
+- **Upcoming Next Milestone:** Bounded Agent with Human-in-the-Loop Approval Gate (`04-ai-agents/exp-02-bounded-agent-with-human-approval`). See [ROADMAP.md](./ROADMAP.md) for the full sequence.
 
 ---
 
