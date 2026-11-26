@@ -1,6 +1,6 @@
 # ADR-0002: Hybrid Retrieval (BM25 + Dense Vectors) and Local Persistence for Grounded RAG POC
 
-**Status:** `Proposed`  
+**Status:** `Accepted`  
 **Date:** `2026-11-26`  
 **Scope:** `03-rag-systems/exp-02-grounded-rag-with-citations-and-evals`  
 **Related ADRs:** [ADR-0001](./adr-0001-switchable-llm-provider-abstraction.md)
